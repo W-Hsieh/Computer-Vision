@@ -31,10 +31,10 @@ This project addresses the challenge of Totally-Looks-Like image matching. To ac
   - We applied feature extraction on the test data using VGG, ResNet, and DenseNet, followed by the calculation of cosine similarity. The features extracted via VGG have 25088 dimensions, ResNet yields 2048 dimensions, and DenseNet produces 1024 dimensions. It’s evident that higher dimensions capture more information, potentially leading to better results.
 - C. Siamese Networks Training
   - After feature extraction for both training and test data, we employed the Siamese Networks for model training. Though higher dimensions capture more intricate details, VGG’s 25088 dimensions pose computational challenges during training. Hence, we implemented max pooling to downsize this dimensionality to 512. Max pooling was preferred over average pooling due to its capacity to retain more informative features. Our model’s training involved various parameters:
-    - **Architectures:** VGG, ResNet, and DenseNet.
-    - **Batch sizes:** 64, 32, 16.
-    - **Number of layers in the shared Siamese Network:** 1, 2.
-    - **Distance metrics in the Siamese Network:** Manhattan Distance (L1) and Euclidean Distance (L2).
+    - **Architectures:** VGG, ResNet, and DenseNet
+    - **Batch sizes:** 64, 32, 16
+    - **Number of layers in the shared Siamese Network:** 1, 2
+    - **Distance metrics in the Siamese Network:** Manhattan Distance (L1) and Euclidean Distance (L2)
     - **Data augmentation:** Yes, No
  
 # Conclusion

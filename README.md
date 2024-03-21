@@ -10,9 +10,9 @@ This project addresses the challenge of Totally-Looks-Like image matching. To ac
 
 - Feature Extraction
   - For this project, we have utilized three renowned deep learning architectures for feature extraction: VGG, ResNet, and DenseNet.
-    **VGG (Visual Geometry Group):** VGG leverages a sequence of convolutional layers followed by max-pooling. It excels at hierarchically extracting intricate patterns and textures from images. The depth of this architecture ensures the capture of both low-level and high-level features, providing a robust representation of the input image.
-    **ResNet (Residual Network):** ResNet introduced the innovative concept of ”skip connections” or ”shortcuts.” These connections allow ResNet to delve deeper in feature extraction, enhancing generalization across various computer vision tasks.
-    **DenseNet (Densely Connected Network):** Taking the idea of connections a step further, DenseNet continually merges and concatenates feature-maps. This approach promotes feature propagation, leading to a diversified feature extraction process.
+    - **VGG (Visual Geometry Group):** VGG leverages a sequence of convolutional layers followed by max-pooling. It excels at hierarchically extracting intricate patterns and textures from images. The depth of this architecture ensures the capture of both low-level and high-level features, providing a robust representation of the input image.
+    - **ResNet (Residual Network):** ResNet introduced the innovative concept of ”skip connections” or ”shortcuts.” These connections allow ResNet to delve deeper in feature extraction, enhancing generalization across various computer vision tasks.
+    - **DenseNet (Densely Connected Network):** Taking the idea of connections a step further, DenseNet continually merges and concatenates feature-maps. This approach promotes feature propagation, leading to a diversified feature extraction process.
     By leveraging these three distinct architectures, we ensure that our model comprehensively captures a broad range of patterns and details.
     
 - Siamese Networks

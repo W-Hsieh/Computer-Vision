@@ -9,7 +9,7 @@ This project addresses the challenge of Totally-Looks-Like image matching. To ac
     ![data_aug](https://github.com/W-Hsieh/Computer-Vision/assets/142127312/c476723a-cf97-4dc1-8c80-ea2e09cb8042)
 
 - **B. Feature Extraction**
-  - For this project, we have utilized three renowned deep learning architectures for feature extraction: VGG, ResNet, and DenseNet.
+  - For this project, we have utilized three deep learning architectures for feature extraction: VGG, ResNet, and DenseNet.
     - **VGG (Visual Geometry Group):** VGG leverages a sequence of convolutional layers followed by max-pooling. It excels at hierarchically extracting intricate patterns and textures from images. This architecture's depth ensures the capture of both low-level and high-level features, providing a robust representation of the input image.
     - **ResNet (Residual Network):** ResNet introduced the innovative concept of ”skip connections” or ”shortcuts.” These connections allow ResNet to delve deeper into feature extraction and enhance generalization across various computer vision tasks.
     - **DenseNet (Densely Connected Network):** DenseNet takes the idea of connections a step further by continually merging and concatenating feature maps. This approach promotes feature propagation, leading to a diversified feature extraction process.

@@ -17,6 +17,10 @@ This project addresses the challenge of Totally-Looks-Like image matching. To ac
     
 - **C. Siamese Networks**
 - **D. Evaluation metrics**
+  - 1) Baseline (cosine similarity):
+       When skipping feature extraction and training processes, we directly expanded all pixels into a column vector and then calculated the cosine similarity for the test data to serve as our baseline. Our choice of cosine similarity stems from its fundamental design for measuring distance between vectors. Euclidean Distance and Manhattan Distance were not chosen for two reasons: Both these distances are highly sensitive to changes in high-dimensional spaces. Additionally, they are influenced by magnitude, which could result in misleading distance measurements in our context.
+       2) Loss function: Comparing the loss functions of the training dataset and test dataset provides insights into how well the model is trained and whether there are any overfitting or underfitting issues.
+       3) Recall: We chose recall as the evaluation metric over accuracy because the test data concerns about top-2 accuracy. Recall shows whether a model can find all objects of the target class, whereas accuracy indicates how often a model is correct overall. Hence, recall is a more representative metric for this project.
 
 # Conclusion
 To summarize, our best results were achieved using only the feature extraction from VGG with a dimension of 25088. While we aimed for enhanced results by training the data using the Siamese Networks, the outcomes did not surpass those obtained from feature extraction alone. Despite testing 144 parameter combinations, the optimal outcome only surpassed the benchmark but fell short compared to our initial feature extraction results. However, it would be hasty to deduce that training doesn’t enhance prediction accuracy. Future experiments

@@ -25,11 +25,11 @@ This project addresses the challenge of Totally-Looks-Like image matching. To ac
   - **3) Recall:** We chose recall as the evaluation metric over accuracy because the test data concerns about top-2 accuracy. Recall shows whether a model can find all objects of the target class, whereas accuracy indicates how often a model is correct overall. Hence, recall is a more representative metric for this project.
 
 # Experiments
-- A. Baseline
+- **A. Baseline**
   - Directly calculate the cosine similarity for the test data.
-- B. Feature Extraction and Cosine Similarity
+- **B. Feature Extraction and Cosine Similarity**
   - We applied feature extraction on the test data using VGG, ResNet, and DenseNet, followed by the calculation of cosine similarity. The features extracted via VGG have 25088 dimensions, ResNet yields 2048 dimensions, and DenseNet produces 1024 dimensions. It’s evident that higher dimensions capture more information, potentially leading to better results.
-- C. Siamese Networks Training
+- **C. Siamese Networks Training**
   - After feature extraction for both training and test data, we employed the Siamese Networks for model training. Though higher dimensions capture more intricate details, VGG’s 25088 dimensions pose computational challenges during training. Hence, we implemented max pooling to downsize this dimensionality to 512. Max pooling was preferred over average pooling due to its capacity to retain more informative features. Our model’s training involved various parameters:
     - **Architectures:** VGG, ResNet, and DenseNet
     - **Batch sizes:** 64, 32, 16
@@ -38,11 +38,11 @@ This project addresses the challenge of Totally-Looks-Like image matching. To ac
     - **Data augmentation:** Yes, No
    
 # Critical Analysis
-  - A. Critical analysis on data preprocessing
+  - **A. Critical analysis on data preprocessing**
     - Firstly, our initial approach focused solely on three data augmentation techniques for preprocessing, which did not yield significant improvements in prediction outcomes. It’s possible that exploring other data augmentation methods could enhance the results. Secondly, the TLL dataset contains borders, overlaid text, and other artifacts. Enhanced data preprocessing, taking these factors into account, might improve the prediction accuracy.
-  - B. Critical analysis on feature extraction
+  - **B. Critical analysis on feature extraction**
     - For the error analysis on feature extraction, we could take ”aaa.jpg” as an example. We noticed that there are two images that received a higher or comparable similarity values to the correct right image. By viewing these two images, it can be observed that certain sections of the images are similar (e.g. binoculars and glasses in (1) and (3), and hats in(1) and (4)). As long as certain section of the image contains identical or similar objects, the image might receive a high score. However, the position and the scale of these features may differ, and the way these images are abstracted varies in terms of human-like perception. Hence, these images should not be labeled as the correct right image. As a result, although calculating the cosine similarity of the extracted features between two images can identify the related properties of two images and achieve a respectable level of performance, it lacks spatial characteristics and would be suboptimal for abstract reasoning about images.
-  - C. Critical analysis on Siamese Network
+  - **C. Critical analysis on Siamese Network**
     -   The test dataset consists of 1 correct image accompanied by 19 foils. To emphasize the correct features and mitigate issues related to class imbalance, we trained the data using 5 foils. This should also serves as a parameter to determine the optimal number of foils that can produce the best prediction accuracy. Moreover, according to the paper and the resource that we discovered, the implementation and structure of Siamese Networks are constructed by shared Convolution Neural Networks. On our first attempt, we employ this structure to build the Siamese Networks. However, the computation time is lengthy and the performance is subpar (based on Kaggle). Hence, we decided to alter the structure of the Siamese Networks. Instead of using image as input, we uses the result of feature extraction as the input and train two Neural Networks on the left and right images. Thus, the data dimension is substantially reduced and the training efficiency is greatly enhanced, allowing us to test on the performance of implementing various parameter values. Nevertheless, modifying the structure of the Siamese Networks could affect the model performance. Since the flattened features from extraction are utilised as the model
  
 # Conclusion
